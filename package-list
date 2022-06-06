@@ -1,0 +1,8 @@
+com.soen6471.vaxsys
+com.soen6471.vaxsys.configuration
+com.soen6471.vaxsys.controller
+com.soen6471.vaxsys.dao
+com.soen6471.vaxsys.dto
+com.soen6471.vaxsys.model
+com.soen6471.vaxsys.service
+com.soen6471.vaxsys.service.impl
