@@ -11,10 +11,19 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
-
+/**
+ * This is Repository class for PatientSlotMapping table. It is used to manage all database relate transaction for this table.
+ * This facility  is used by various services.
+ * @author Gaurang Dobariya
+ */
 @Repository
 public interface PatientSlotMappingDao extends JpaRepository<PatientSlotMapping,Integer> {
 
+    /**
+     * This is used to view all teh upcoming appointments
+     * @param patientId patient ID
+     * @return list of the upcoming slot registration
+     */
     @Query("SELECT new com.soen6471.vaxsys.dto.SlotDetailDto (" +
             "p.ID , p.patientId,s.ID,s.time,vs.ID,vs.location,v.name,p.vacDate) " +
             "FROM PatientSlotMapping p " +
@@ -24,10 +33,23 @@ public interface PatientSlotMappingDao extends JpaRepository<PatientSlotMapping,
             "WHERE p.patientId = :patientId AND p.status = 1 AND p.vacDate >= current_date")
     public List<SlotDetailDto>  getSlotByPId(@Param("patientId") Integer patientId);
 
+    /**
+     * This is used to update status to inactive for canceleed slots
+     * @param slotId Id of the slots
+     * @return status of cancellation process
+     */
     @Modifying
     @Query("UPDATE PatientSlotMapping p SET p.status = 0 WHERE  p.ID = :slotId")
     public Integer updateStatus(Integer slotId);
 
+    /**
+     * This is used to get all the remained /unbooked slots
+     * @param selectedDate Date for which user is looking for the appointment
+     * @param patientId Id of the patient
+     * @param hospitalId Hospital Id selected for booking slot
+     * @param status This is used to get active slots
+     * @return list of booked slots
+     */
     @Query("SELECT new com.soen6471.vaxsys.model.Slot (s.ID,s.time)" +
             "    FROM PatientSlotMapping p" +
             "   JOIN Slot s ON s.ID = p.slotID" +

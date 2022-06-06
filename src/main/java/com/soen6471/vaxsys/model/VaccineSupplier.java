@@ -4,7 +4,10 @@ package com.soen6471.vaxsys.model;
 import lombok.*;
 
 import javax.persistence.*;
-
+/**
+ * This is model classs for vaccineSupplier.This also has ID column as a Unique key.
+ * @author Gaurang Dobariya
+ */
 @Entity
 @Getter
 @Setter

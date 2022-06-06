@@ -4,6 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
+/**
+ * This is model classs for slot.This also has ID column as a Unique key.
+ * @author Gaurang Dobariya
+ */
 @Entity
 @Getter
 @Setter

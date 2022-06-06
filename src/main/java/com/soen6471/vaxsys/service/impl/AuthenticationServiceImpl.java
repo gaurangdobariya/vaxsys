@@ -21,13 +21,18 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Autowired
    private AuthenticationDao authenticationDao;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer register (PatientDto patientDto){
         Patient patient = patientDto.patientDtoToPatientMapper();
         Patient savedPatient = authenticationDao.saveAndFlush(patient);
         return savedPatient.getID();
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer login(LoginDto loginDto) {
          String email = loginDto.getEmailId();

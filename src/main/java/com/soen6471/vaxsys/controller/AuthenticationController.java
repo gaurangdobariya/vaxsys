@@ -35,7 +35,7 @@ public class AuthenticationController {
      * @param password This is for password field as a param
      * @return id of the user if email and password match else null in case of any error/invalidation
      */
-    @GetMapping("/login")
+    @PostMapping("/login")
     public Integer login(@RequestParam String emailId,@RequestParam String password){
         LoginDto loginDto = new LoginDto();
         loginDto.setEmailId(emailId);

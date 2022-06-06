@@ -39,41 +39,55 @@ public class DashboardServiceImpl implements DashboardService {
 
     @Autowired
     private SlotDao slotDao;
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<VaccineInfoDetailDto> getAllVaccineInfo() {
         return vaccineDao.getAllVaccineInfo();
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Vaccine> getAllVaccines() {
         return vaccineDao.findAll();
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<VaccineSupplier> getHospitalByVacID(Integer vaccineId) {
         return vaccineSupplierDao.findByVaccineID(vaccineId);
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Integer addSlot(SlotDto slotDto) {
         PatientSlotMapping patientSlotMapping = slotDto.slotDtoToMapping();
         patientSlotMapping.setStatus(1);
         return patientSlotMappingDao.saveAndFlush(patientSlotMapping).getID();
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<SlotDetailDto> viewSlot(Integer patientId) {
         return patientSlotMappingDao.getSlotByPId(patientId);
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     @Transactional
     public Integer cancelSlot(Integer slotId) {
         return  patientSlotMappingDao.updateStatus(slotId);
 
     }
-
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Slot> getSlotsByfilters(Date selectedDate, Integer patientId, Integer hospitalId) {
         List<Slot> slots = slotDao.findAll();

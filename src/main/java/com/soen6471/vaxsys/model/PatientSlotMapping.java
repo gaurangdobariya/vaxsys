@@ -4,7 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Date;
-
+/**
+ * This is model classs for patientSlotMapping.This also has ID column as a Unique key.
+ * @author Gaurang Dobariya
+ */
 @Entity
 @Getter
 @Setter

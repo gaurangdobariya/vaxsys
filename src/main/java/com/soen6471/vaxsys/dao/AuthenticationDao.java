@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * This is Repository class for AAA table. It is used to manage all database relate transaction for this table.
+ * This is Repository class for Patient table. It is used to manage all database relate transaction for this table.
  * This facility  is used by various services.
  * @author Gaurang Dobariya
  */
