@@ -19,7 +19,7 @@ import java.util.List;
 public interface DashboardService {
 
     /**
-     * This is used to view vacccine information
+     * This is used to view vaccine information
      * @return List of vaccines along with all the information.
      */
    public List<VaccineInfoDetailDto> getAllVaccineInfo();

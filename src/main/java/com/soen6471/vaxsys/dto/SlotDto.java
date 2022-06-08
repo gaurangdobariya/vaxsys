@@ -3,7 +3,7 @@ package com.soen6471.vaxsys.dto;
 import com.soen6471.vaxsys.model.PatientSlotMapping;
 import lombok.*;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Getter
 @Setter

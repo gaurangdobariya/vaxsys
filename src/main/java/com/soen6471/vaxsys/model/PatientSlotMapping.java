@@ -3,7 +3,8 @@ package com.soen6471.vaxsys.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
 /**
  * This is model classs for patientSlotMapping.This also has ID column as a Unique key.
  * @author Gaurang Dobariya
